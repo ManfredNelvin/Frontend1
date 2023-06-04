@@ -1,0 +1,195 @@
+/* Navbar styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 10px;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-left {
+    display: flex;
+  }
+  
+  .navbar-right {
+    margin-left: auto;
+  }
+  
+  .nav-item {
+    margin-right: 10px;
+  }
+  
+  .nav-link {
+    text-decoration: none;
+    color: #333;
+    padding: 5px 10px;
+  }
+  
+  /* Search bar styles */
+  .search-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  input[type="text"] {
+    padding: 5px;
+  }
+  
+  button[type="submit"] {
+    padding: 5px 10px;
+  }
+  
+  /* Rest of the styles remain the same */
+  
+  
+  /* Slideshow styles */
+  .slideshow {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .slide {
+    display: none;
+    width: 100%;
+  }
+  
+  .prev,
+  .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #f8f8f8;
+    color: #333;
+    border: none;
+    padding: 10px;
+    font-size: 18px;
+  }
+  
+  .prev {
+    left: 0;
+  }
+  
+  .next {
+    right: 0;
+  }
+  
+  /* Image gallery styles */
+  .image-gallery {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px ;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 40px;
+  }
+  
+  .parent_gallery{
+    display: flex;
+  }
+  .gallery-item {
+    width: 400px;
+    height: 200px;
+  }
+  
+  /* Description styles */
+  .description {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  
+  .image-grid img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .image-1 {
+    /*grid-row: 1 / 4;*/
+    width: 200px;
+    height: 300px;
+  }
+  
+  .image-2,
+  .image-3,
+  .image-5,
+  .image-6 {
+    width: 100px;
+    height: 200px;
+  }
+  
+  .image-4,
+  .image-7,
+  .image-8,
+  .image-9 {
+    width: 100px;
+    height: 200px;
+  }
+  
+  
+  /* Back to top button styles */
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: blue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  
+  }
+  .parent_card{
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    justify-content: space-between;
+    grid-gap: 10px;
+    margin-top: 50px;
+  }
+  .parent_card img{
+    height: 200px;
+    width: 335px;
+  }
+  .footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: left;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+  }
+
+  .footer-links li {
+    margin: 0 10px;
+  }
+
+  .footer-links a {
+    color: #0658a0;
+    text-decoration: none;
+  }
+
+
+
+  
