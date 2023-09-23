@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Authentication</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        #profile {
+            display: none;
+        }
+
+        #success-message, #error-message {
+            color: green;
+            font-weight: bold;
+            display: none;
+        }
+
+        #error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Signup</h1>
+        <form id="signup-form">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+            <button type="submit">Continue</button>
+        </form>
+        <p>Don't have an account? <a href="#" id="login-link">Sign up</a></p>
+        
+        <div id="profile">
+            <h2>User Profile</h2>
+            <p><strong>Name:</strong> <span id="profile-name"></span></p>
+            <p><strong>Email:</strong> <span id="profile-email"></span></p>
+            <p><strong>Password:</strong> <span id="profile-password"></span></p>
+            <p><strong>Access Token:</strong> <span id="access-token"></span></p>
+            <button id="logout-button">Logout</button>
+        </div>
+
+        <div id="success-message">Signup successful!</div>
+        <div id="error-message">All fields are mandatory.</div>
+    </div>
+
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirm_password = document.getElementById('confirm-password').value;
+
+            if (name === '' || email === '' || password === '' || confirm_password === '') {
+                document.getElementById('error-message').style.display = 'block';
+                return;
+            }
+
+            if (password !== confirm_password) {
+                alert("Passwords do not match.");
+                return;
+            }
+
+            // Display the user profile and success message
+            document.getElementById('profile-name').textContent = name;
+            document.getElementById('profile-email').textContent = email;
+            document.getElementById('profile-password').textContent = password;
+            
+            const accessToken = generateRandomToken();
+            document.getElementById('access-token').textContent = accessToken;
+
+            document.getElementById('profile').style.display = 'block';
+            document.getElementById('success-message').style.display = 'block';
+            document.getElementById('error-message').style.display = 'none';
+
+            // Hide the signup form
+            document.getElementById('signup-form').style.display = 'none';
+        });
+
+        document.getElementById('logout-button').addEventListener('click', function () {
+            // Clear user data, reset the form, and hide elements
+            document.getElementById('signup-form').reset();
+            document.getElementById('signup-form').style.display = 'block';
+            document.getElementById('profile').style.display = 'none';
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('error-message').style.display = 'none';
+        });
+
+        document.getElementById('login-link').addEventListener('click', function (e) {
+            e.preventDefault();
+        });
+
+        function generateRandomToken() {
+            const token = crypto.getRandomValues(new Uint8Array(16));
+            return Array.from(token, (byte) => ('0' + (byte & 0xff).toString(16)).slice(-2)).join('');
+        }
+    </script>
+</body>
+</html>
